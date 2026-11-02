@@ -1,236 +1,60 @@
-# Tugas 1: Eksplorasi dan Analisis Dataset Besar Indonesia
+# Dokumentasi Dataset Agroklimatik Indonesia
 
-Template untuk Tugas 1 mata kuliah Analisis Big Data. Setelah repository GitHub Classroom dibuat, ubah nama repository menjadi `tugas1-[username_github]`.
+## 1. Informasi Dataset
 
-## Milestone
+- **Nama Dataset:** Nationwide Agroclimatic Dataset for Indonesia
+- **Sumber Dataset:** Mendeley Data
+- **Link Dataset:** https://data.mendeley.com/datasets/3pfbdbzfff/1
+- **Format Data:** Parquet
+- **Jumlah Baris:** 2.235.636
+- **Jumlah Kolom:** 23
+- **Penggunaan:** Eksplorasi dan analisis data agroklimatik di Indonesia.
 
-| Tahap | Target | Bukti yang dikumpulkan |
-|---|---|---|
-| Milestone 1 | Pertemuan 3 | Dataset >= 500 MB atau > 1 juta baris, `data/README.md`, dan `notebooks/01_data_profiling.ipynb` |
-| Milestone 2 | Pertemuan 5 | Cleaning dengan Polars dan profiling DuckDB `SUMMARIZE` |
-| Milestone 3 | Pertemuan 8 | Analisis temporal/ruang dan minimal 6 visualisasi interaktif |
-| Final | Pertemuan 10 | Minimal 5 insight, Dockerfile, dan dokumentasi akhir |
+## 2. Deskripsi Dataset
 
-## Output yang Diharapkan
+Dataset ini berisi informasi agroklimatik wilayah Indonesia yang dapat digunakan untuk menganalisis kondisi iklim dan indikator agroklimat.
 
-Pada final submission, repository harus menghasilkan analisis yang dapat dijalankan ulang dari awal dan memuat:
+Data disimpan dalam format Parquet dan terdiri dari beberapa file berdasarkan tahun serta file hasil pemrosesan.
 
-- Dataset Indonesia yang terdokumentasi, berukuran minimal 500 MB atau lebih dari 1 juta baris, beserta instruksi unduhnya.
-- Notebook profiling, cleaning, serta EDA yang dapat dieksekusi berurutan.
-- Cleaning dan validasi data untuk missing values, duplikasi, outlier, serta aturan kualitas yang relevan dengan dataset.
-- Analisis temporal atau spasial, minimal 6 visualisasi interaktif dengan Plotly atau Altair, dan minimal 5 insight analitik yang didukung hasil analisis.
-- Environment yang dapat direproduksi melalui `Dockerfile`, `requirements.txt`, dan petunjuk eksekusi di README.
-- Riwayat commit bertahap yang menunjukkan proses kerja pada setiap milestone.
+## 3. Struktur Dataset
 
-## Kaitan dengan Materi Perkuliahan
+Dataset disimpan dalam direktori:
 
-| Materi | Pertemuan | Penerapan pada Tugas 1 |
-|---|:---:|---|
-| Polars dan lazy evaluation | 2 | Profiling dan transformasi dataset besar dengan `scan_*`, expressions, dan pipeline efisien. |
-| DuckDB dan format data | 3 | Query analitik serta profiling dengan `SUMMARIZE`; gunakan Parquet bila sesuai. |
-| Data quality dan cleaning | 4 | Tangani missing values, duplikasi, outlier, dan validasi data. |
-| EDA dan visualisasi | 5 | Bangun visualisasi interaktif serta rumuskan insight analitik. |
-| Time series | 6 | Terapkan analisis pola waktu atau pola spasial yang relevan dengan dataset. |
-| Dask, NLP, dan ML | 7-9 | Opsional sebagai pengembangan jika relevan dengan skala dan pertanyaan analisis. |
-| Streamlit dan Docker | 10-11 | Dokumentasikan environment Docker; dashboard Streamlit bersifat opsional untuk Tugas 1. |
+`data/raw/agroclimatic_indonesia/data/`
 
-## Ringkasan Penilaian
+Struktur folder:
 
-Nilai Tugas 1 berbobot 25% dari nilai akhir. Penilaian lengkap ada di dokumen spesifikasi tugas; ringkasannya sebagai berikut.
+- `raw/`: Berisi data tahunan dari 2016 sampai 2025.
+- `processed/`: Berisi dataset hasil pemrosesan.
+- `code/`: Berisi kode yang disediakan bersama dataset.
+- `metadata/`: Berisi informasi metadata dataset.
 
-| Aspek | Bobot | Indikator utama |
-|---|:---:|---|
-| Konsistensi commit dan GitHub workflow | 20% | Commit bertahap, pesan deskriptif, struktur repository rapi, dan pemeriksaan otomatis lulus. |
-| Data handling dengan Polars dan DuckDB | 25% | Pengolahan data besar efisien, memakai Polars dan DuckDB sesuai peran masing-masing. |
-| Cleaning dan data quality | 15% | Profiling, validasi, serta penanganan null dan outlier terdokumentasi. |
-| Visualisasi dan insight | 25% | Visualisasi interaktif informatif dan insight analitik yang didukung data. |
-| Reproduktivitas dan Docker | 15% | Dockerfile, dependency, dan instruksi eksekusi memungkinkan proyek dijalankan ulang. |
+File utama yang digunakan dalam penelitian:
 
-Target kualitas tertinggi adalah analisis yang efisien, terdokumentasi, dapat direproduksi, dan memperlihatkan proses kerja konsisten sepanjang milestone; bukan hanya hasil akhir yang terlihat baik.
+`processed/agroclimate_with_indicators.parquet`
 
-## Struktur Repository
+## 4. Hasil Pemeriksaan Awal
 
-```text
-.
-├── .github/workflows/lint_check.yml
-├── data/README.md
-├── notebooks/
-│   ├── 01_data_profiling.ipynb
-│   ├── 02_data_cleaning.ipynb
-│   └── 03_eda_and_insights.ipynb
-├── output/figures/
-├── src/
-├── Dockerfile
-├── requirements.txt
-└── README.md
-```
+Berdasarkan proses profiling menggunakan Polars, diperoleh:
 
-# Tugas 1 Analisis Big Data 2026
+| Informasi | Hasil |
+|---|---:|
+| Jumlah baris | 2.235.636 |
+| Jumlah kolom | 23 |
+| Format | Parquet |
+| Library profiling | Polars |
+| Library analitik | DuckDB |
 
-## Persiapan GitHub
+Dataset memenuhi persyaratan minimal tugas, yaitu lebih dari 1 juta baris.
 
-### 1. Fork Repository Tugas
+## 5. Cara Mendapatkan Dataset
 
-Fork repository berikut ke akun GitHub masing-masing:
+1. Buka tautan sumber dataset di atas.
+2. Unduh dataset dari Mendeley Data.
+3. Ekstrak file ZIP.
+4. Letakkan folder hasil ekstraksi pada `data/raw/agroclimatic_indonesia/`.
+5. Jalankan notebook profiling untuk memeriksa dataset.
 
-https://github.com/UMM-GURU/tugas1-abd-2026.git
+## 6. Catatan
 
-Langkah-langkah:
-
-1. Login ke GitHub.
-2. Buka repository tugas.
-3. Klik tombol **Fork** di pojok kanan atas.
-4. Tunggu hingga GitHub membuat salinan repository ke akun Anda.
-
-Setelah selesai, Anda akan memiliki repository dengan alamat seperti:
-
-```text
-https://github.com/USERNAME-ANDA/tugas1-abd-2026.git
-```
-
----
-
-### 2. Clone Repository Hasil Fork
-
-Buka Terminal, Git Bash, atau Command Prompt lalu jalankan:
-
-```bash
-git clone https://github.com/USERNAME-ANDA/tugas1-abd-2026.git
-cd tugas1-abd-2026
-```
-
-Ganti `USERNAME-ANDA` dengan username GitHub Anda.
-
----
-
-## Menjalankan Project
-
-Pastikan Docker sudah terpasang pada komputer Anda.
-
-### Build Docker Image
-
-```bash
-docker build -t tugas1-bigdata .
-```
-
-### Jalankan Container
-
-```bash
-docker run --rm -p 8888:8888 -v "$(pwd)":/home/jovyan/work tugas1-bigdata
-```
-
-### Membuka JupyterLab
-
-Buka browser dan akses:
-
-http://localhost:8888/lab
-
-> **Catatan:** Konfigurasi Dockerfile menjalankan JupyterLab tanpa password atau token untuk penggunaan lokal. Jangan gunakan konfigurasi ini pada server atau jaringan publik.
-
----
-
-## Menyiapkan Dataset
-
-1. Letakkan dataset yang akan digunakan pada folder:
-
-```text
-data/raw/
-```
-
-2. Buka notebook profiling atau notebook yang digunakan.
-3. Sesuaikan nilai variabel `DATA_PATH` agar mengarah ke file dataset yang Anda gunakan.
-
-Contoh:
-
-```python
-DATA_PATH = "data/raw/nama_dataset.csv"
-```
-
----
-
-## Mengerjakan Tugas
-
-1. Baca seluruh instruksi yang terdapat pada notebook.
-2. Kerjakan setiap bagian sesuai perintah.
-3. Simpan perubahan secara berkala.
-
----
-
-## Commit Perubahan
-
-Setelah tugas selesai dikerjakan, simpan hasil pekerjaan ke Git menggunakan perintah berikut:
-
-```bash
-git add .
-git commit -m "Menyelesaikan Tugas 1 Analisis Big Data"
-```
-
-Anda dapat mengganti pesan commit sesuai kebutuhan.
-
----
-
-## Push ke Repository GitHub
-
-Kirim hasil pekerjaan ke repository GitHub milik Anda:
-
-```bash
-git push origin main
-```
-
-Apabila branch utama bernama `master`, gunakan:
-
-```bash
-git push origin master
-```
-
----
-
-## Verifikasi Pengumpulan
-
-1. Buka repository GitHub milik Anda.
-2. Pastikan file yang telah dikerjakan sudah muncul.
-3. Pastikan terdapat minimal satu commit hasil pekerjaan Anda.
-4. Salin URL repository Anda untuk keperluan penilaian jika diminta dosen.
-
-Contoh URL repository:
-
-```text
-https://github.com/USERNAME-ANDA/tugas1-abd-2026
-```
-
----
-
-## Menjalankan Project
-
-```bash
-docker build -t tugas1-bigdata .
-docker run --rm -p 8888:8888 -v "$(pwd)":/home/jovyan/work tugas1-bigdata
-```
-
-Buka JupyterLab pada `http://localhost:8888/lab`. Konfigurasi Dockerfile menjalankan JupyterLab tanpa password atau token untuk penggunaan lokal. Jangan gunakan konfigurasi ini pada server atau jaringan publik. Letakkan dataset pada `data/raw/`, lalu sesuaikan `DATA_PATH` di notebook profiling.
-
-## Aturan Teknis
-
-- Gunakan Polars untuk manipulasi data dan DuckDB untuk analitik SQL.
-- Dataset harus minimal 500 MB atau lebih dari 1 juta baris.
-- Jangan commit file data besar; simpan instruksi unduhan dan sumber data pada `data/README.md`.
-- Gunakan commit bertahap dan pesan yang jelas, misalnya `feat: add initial dataset profiling`.
-
-## Integritas Akademik dan Penggunaan AI
-
-- Dilarang menyalin kode, laporan, atau visualisasi mahasiswa lain maupun repository publik tanpa sitasi dan atribusi yang jelas.
-- Dilarang menggunakan jasa joki atau menyerahkan pekerjaan yang tidak dapat dijelaskan sendiri.
-- AI boleh digunakan untuk belajar, mencari rujukan, menjelaskan konsep, atau debugging. AI tidak menggantikan tanggung jawab mahasiswa atas kebenaran dan kualitas solusi.
-- Mahasiswa wajib dapat menjelaskan setiap bagian kode, menjalankan serta memverifikasi ulang hasilnya, dan memastikan penggunaan Polars serta DuckDB sesuai standar kuliah.
-- Setiap penggunaan AI harus dicantumkan pada bagian AI Disclosure Statement di bawah.
-- Pelanggaran pertama bernilai 0 untuk tugas terkait; pelanggaran berikutnya dapat berakibat nilai E untuk mata kuliah sesuai ketentuan akademik.
-
-## AI Disclosure Statement
-
-Isi bagian ini sebelum pengumpulan akhir.
-
-> Alat AI yang digunakan: [nama alat].
->
-> Bagian yang dibantu: [contoh: penjelasan error Polars atau review dokumentasi].
->
-> Verifikasi yang dilakukan: [contoh: menjalankan ulang kode, memeriksa dokumentasi resmi, dan memahami setiap cell].
+File dataset mentah tidak disertakan dalam repository GitHub karena ukurannya relatif besar. Pengguna dapat mengunduh dataset melalui sumber yang telah dicantumkan di atas.
